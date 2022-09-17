@@ -1,5 +1,12 @@
 # Change Log
 
+## 4.1.12
+
+* Updated Apache PDFBox to version 2.0.22.
+* PdfBoxProcessor properties added to better control memory
+    * `processor.pdf.scratch_file_enabled` allows use of a scratch file
+    * `processor.pdf.max_memory_bytes` allows control over how much memory a PDF thread consumes (-1 means unlimited)
+
 ## 4.1.11
 
 * Fixed an issue with the 4.1.10 build whereby the logback-classic dependency

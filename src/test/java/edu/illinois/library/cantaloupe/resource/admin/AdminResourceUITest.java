@@ -506,6 +506,10 @@ public class AdminResourceUITest extends AbstractAdminResourceTest {
         // OpenJpegProcessor
         css("#cl-processors li > a[href=\"#OpenJpegProcessor\"]").click();
         inputNamed(Key.OPENJPEGPROCESSOR_PATH_TO_BINARIES).sendKeys("/ojpath");
+        // PdfBoxProcessor
+        css("#cl-processors li > a[href=\"#PdfBoxProcessor\"]").click();
+        inputNamed(Key.PROCESSOR_PDF_SCRATCH_FILE_ENABLED).click();
+        inputNamed(Key.PROCESSOR_PDF_MAX_MEMORY_BYTES).sendKeys("-1");
 
         // Submit the form
         css("#cl-processors input[type=\"submit\"]").click();
@@ -551,6 +555,9 @@ public class AdminResourceUITest extends AbstractAdminResourceTest {
         // OpenJpegProcessor
         assertEquals("/ojpath",
                 config.getString(Key.OPENJPEGPROCESSOR_PATH_TO_BINARIES));
+        // PdfBoxProcessor
+        assertEquals(-1,
+                config.getLongBytes(Key.PROCESSOR_PDF_MAX_MEMORY_BYTES));
     }
 
     @Test
